@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+*.conda
+
+# Local/editor state
+.vscode/
+.idea/
+*.swp
+*.swo
+~$*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and temporary outputs
+*.log
+tmp/
+temp/
+*.tmp
+
+# Large/private data by default
+data/raw/
+data/private/
+
+# LaTeX/build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+*.toc
+
