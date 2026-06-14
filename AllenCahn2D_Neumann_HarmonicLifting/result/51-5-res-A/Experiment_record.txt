@@ -1,0 +1,275 @@
+
+============================================================
+[Experiment Log | 2026-03-28 14:39:12]
+============================================================
+
+├─ Problem: 2D Allen-Cahn  u_t = ε Δu + u - u³
+│   ├── epsilon: 0.05
+│   ├── T: 1.0
+│   ├── Data Path: /data/zhanglei/BurgersEquationII/ac2d_randbc_1100.h5
+│   └── Sub-sampling: spatial=2, temporal=2
+
+├─ Model: SOL2D + DCT-I
+│   ├── Input Channels: 8 (u:5 + grid:2 + u_b:1)
+│   ├── Modes: [[25, 25], [20, 20], [20, 20], [20, 20], [15, 15]], Width: [25, 25, 25, 25, 25]
+│   └── Total Parameters: 1,232,582
+
+├─ Data: train=1000, test=100, batch=20
+│   └── t_train=51, init_t=5
+
+├─ Optimizer: Adam, lr=0.004, scheduler=ReduceLROnPlateau
+└─ Device: cuda, Seed: 0
+
+============================================================
+
+============================================================
+[Experiment Log | 2026-03-28 14:43:37]
+============================================================
+
+├─ Problem: 2D Allen-Cahn  u_t = ε Δu + u - u³
+│   ├── epsilon: 0.05
+│   ├── T: 1.0
+│   ├── Data Path: /data/zhanglei/BurgersEquationII/ac2d_randbc_1100.h5
+│   └── Sub-sampling: spatial=2, temporal=2
+
+├─ Model: SOL2D + DCT-I
+│   ├── Input Channels: 8 (u:5 + grid:2 + u_b:1)
+│   ├── Modes: [[25, 25], [20, 20], [20, 20], [20, 20], [15, 15]], Width: [25, 25, 25, 25, 25]
+│   └── Total Parameters: 1,232,582
+
+├─ Data: train=1000, test=100, batch=20
+│   └── t_train=51, init_t=5
+
+├─ Optimizer: Adam, lr=0.004, scheduler=ReduceLROnPlateau
+└─ Device: cuda, Seed: 0
+
+============================================================
+├── Test l2 error in epoch 0: 1.0282e+00
+│   └── Costed Time: 0h 0m
+│   └── Per 100 epoch: 0h 0m
+│   └── Best epoch: 0
+│       └── loss: 1.0000e+02
+
+============================================================
+[Experiment Log | 2026-03-28 14:48:32]
+============================================================
+
+├─ Problem: 2D Allen-Cahn  u_t = ε Δu + u - u³
+│   ├── epsilon: 0.05
+│   ├── T: 1.0
+│   ├── Data Path: /data/zhanglei/BurgersEquationII/ac2d_randbc_1100.h5
+│   └── Sub-sampling: spatial=2, temporal=2
+
+├─ Model: SOL2D + DCT-I
+│   ├── Input Channels: 8 (u:5 + grid:2 + u_b:1)
+│   ├── Modes: [[25, 25], [20, 20], [20, 20], [20, 20], [15, 15]], Width: [25, 25, 25, 25, 25]
+│   └── Total Parameters: 1,232,582
+
+├─ Data: train=1000, test=100, batch=20
+│   └── t_train=51, init_t=5
+
+├─ Optimizer: Adam, lr=0.001, scheduler=ReduceLROnPlateau
+└─ Device: cuda, Seed: 0
+
+============================================================
+├── Test l2 error in epoch 0: 1.0282e+00
+│   └── Costed Time: 0h 0m
+│   └── Per 100 epoch: 0h 0m
+│   └── Best epoch: 0
+│       └── loss: 1.0000e+02
+
+============================================================
+[Experiment Log | 2026-03-28 14:49:33]
+============================================================
+
+├─ Problem: 2D Allen-Cahn  u_t = ε Δu + u - u³
+│   ├── epsilon: 0.05
+│   ├── T: 1.0
+│   ├── Data Path: /data/zhanglei/BurgersEquationII/ac2d_randbc_1100.h5
+│   └── Sub-sampling: spatial=2, temporal=2
+
+├─ Model: SOL2D + DCT-I
+│   ├── Input Channels: 8 (u:5 + grid:2 + u_b:1)
+│   ├── Modes: [[25, 25], [20, 20], [20, 20], [20, 20], [15, 15]], Width: [25, 25, 25, 25, 25]
+│   └── Total Parameters: 1,232,582
+
+├─ Data: train=1000, test=100, batch=20
+│   └── t_train=51, init_t=5
+
+├─ Optimizer: Adam, lr=0.002, scheduler=Step
+└─ Device: cuda, Seed: 0
+
+============================================================
+├── Test l2 error in epoch 0: 1.0282e+00
+│   └── Costed Time: 0h 0m
+│   └── Per 100 epoch: 0h 0m
+│   └── Best epoch: 0
+│       └── loss: 1.0000e+02
+├── Test l2 error in epoch 50: 6.5996e-02
+│   └── Costed Time: 0h 29m
+│   └── Per 100 epoch: 0h 28m
+│   └── Best epoch: 40
+│       └── loss: 3.1380e-02
+├── Test l2 error in epoch 100: 5.5815e-03
+│   └── Costed Time: 0h 57m
+│   └── Per 100 epoch: 0h 28m
+│   └── Best epoch: 100
+│       └── loss: 1.1868e-02
+├── Test l2 error in epoch 150: 7.8804e-03
+│   └── Costed Time: 1h 25m
+│   └── Per 100 epoch: 0h 27m
+│   └── Best epoch: 103
+│       └── loss: 6.9325e-03
+├── Test l2 error in epoch 200: 2.1425e-03
+│   └── Costed Time: 1h 53m
+│   └── Per 100 epoch: 0h 28m
+│   └── Best epoch: 200
+│       └── loss: 3.6749e-03
+├── Test l2 error in epoch 250: 6.2111e-03
+│   └── Costed Time: 2h 22m
+│   └── Per 100 epoch: 0h 28m
+│   └── Best epoch: 208
+│       └── loss: 2.8651e-03
+├── Test l2 error in epoch 300: 1.1073e-03
+│   └── Costed Time: 2h 50m
+│   └── Per 100 epoch: 0h 28m
+│   └── Best epoch: 300
+│       └── loss: 2.5524e-03
+├── Test l2 error in epoch 350: 1.0914e-03
+│   └── Costed Time: 3h 18m
+│   └── Per 100 epoch: 0h 28m
+│   └── Best epoch: 341
+│       └── loss: 1.6344e-03
+├── Test l2 error in epoch 400: 9.0629e-04
+│   └── Costed Time: 3h 46m
+│   └── Per 100 epoch: 0h 27m
+│   └── Best epoch: 400
+│       └── loss: 1.4908e-03
+├── Test l2 error in epoch 450: 7.6818e-04
+│   └── Costed Time: 4h 12m
+│   └── Per 100 epoch: 0h 26m
+│   └── Best epoch: 408
+│       └── loss: 1.1446e-03
+├── Test l2 error in epoch 500: 6.0417e-04
+│   └── Costed Time: 4h 39m
+│   └── Per 100 epoch: 0h 26m
+│   └── Best epoch: 500
+│       └── loss: 9.9229e-04
+├── training succeed | [2026-03-28 19:29:18]
+│   └── Costed Time: 4h 39m
+------------------------------------------------------------
+
+============================================================
+[TI(L)-DeepONet | 2026-05-11 21:34:28]
+============================================================
+├─ Allen-Cahn: epsilon=0.05, T=1.0, dt=0.020000
+├─ Grid: Nx=65, Ny=65, init_step=5
+├─ Branch CNN: [{'out_channels': 50, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 50, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 50, 'kernel_size': 2, 'activation': 'relu', 'pool': 'avg', 'pool_size': 2}]
+├─ Branch MLP: [256, 128] → latent=100
+├─ Branch Flatten: 9×9 = 4050
+├─ Trunk MLP: [128, 128, 128, 128, 128, 128] → latent=100
+├─ RK4 CNN: [{'out_channels': 30, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 30, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 30, 'kernel_size': 2, 'activation': 'relu', 'pool': 'avg', 'pool_size': 2}]
+├─ RK4 MLP: [32, 32] → 4
+├─ Params: DeepONet=1,214,497 + RK4=91,040 = 1,305,537
+├─ DeepONet lr=0.001, RK4 lr=0.002
+└─ scheduler=ReduceLROnPlateau
+============================================================
+├── epoch 0: test_l2=3.7142e-01  elapsed=0h1m  per_interval=0h1m
+
+============================================================
+[TI(L)-DeepONet | 2026-05-11 22:01:27]
+============================================================
+├─ Allen-Cahn: epsilon=0.05, T=1.0, dt=0.020000
+├─ Grid: Nx=65, Ny=65, init_step=5
+├─ Branch CNN: [{'out_channels': 50, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 50, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 50, 'kernel_size': 2, 'activation': 'relu', 'pool': 'avg', 'pool_size': 2}]
+├─ Branch MLP: [256, 128] → latent=100
+├─ Branch Flatten: 9×9 = 4050
+├─ Trunk MLP: [128, 128, 128, 128, 128, 128] → latent=100
+├─ RK4 CNN: [{'out_channels': 30, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 30, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 30, 'kernel_size': 2, 'activation': 'relu', 'pool': 'avg', 'pool_size': 2}]
+├─ RK4 MLP: [32, 32] → 4
+├─ Params: DeepONet=1,214,497 + RK4=91,040 = 1,305,537
+├─ DeepONet lr=0.001, RK4 lr=0.002
+└─ scheduler=ReduceLROnPlateau
+============================================================
+
+============================================================
+[TI(L)-DeepONet | 2026-05-11 22:08:58]
+============================================================
+├─ Allen-Cahn: epsilon=0.05, T=1.0, dt=0.020000
+├─ Grid: Nx=65, Ny=65, init_step=5
+├─ Branch CNN: [{'out_channels': 50, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 50, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 50, 'kernel_size': 2, 'activation': 'relu', 'pool': 'avg', 'pool_size': 2}]
+├─ Branch MLP: [256, 128] → latent=100
+├─ Branch Flatten: 9×9 = 4050
+├─ Trunk MLP: [128, 128, 128, 128, 128, 128] → latent=100
+├─ RK4 CNN: [{'out_channels': 30, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 30, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 30, 'kernel_size': 2, 'activation': 'relu', 'pool': 'avg', 'pool_size': 2}]
+├─ RK4 MLP: [32, 32] → 4
+├─ Params: DeepONet=1,214,497 + RK4=91,040 = 1,305,537
+├─ DeepONet lr=0.001, RK4 lr=0.002
+└─ scheduler=ReduceLROnPlateau
+============================================================
+
+============================================================
+[TI(L)-DeepONet | 2026-05-11 22:10:43]
+============================================================
+├─ Allen-Cahn: epsilon=0.05, T=1.0, dt=0.020000
+├─ Grid: Nx=65, Ny=65, init_step=5
+├─ Branch CNN: [{'out_channels': 50, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 50, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 50, 'kernel_size': 2, 'activation': 'relu', 'pool': 'avg', 'pool_size': 2}]
+├─ Branch MLP: [256, 128] → latent=100
+├─ Branch Flatten: 9×9 = 4050
+├─ Trunk MLP: [128, 128, 128, 128, 128, 128] → latent=100
+├─ RK4 CNN: [{'out_channels': 30, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 30, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 30, 'kernel_size': 2, 'activation': 'relu', 'pool': 'avg', 'pool_size': 2}]
+├─ RK4 MLP: [32, 32] → 4
+├─ Params: DeepONet=1,214,497 + RK4=91,040 = 1,305,537
+├─ DeepONet lr=0.001, RK4 lr=0.002
+└─ scheduler=ReduceLROnPlateau
+============================================================
+├── epoch 0: test_l2=3.7110e-01  elapsed=0h0m  per_interval=0h0m
+
+============================================================
+[TI(L)-DeepONet | 2026-05-11 22:15:17]
+============================================================
+├─ Allen-Cahn: epsilon=0.05, T=1.0, dt=0.020000
+├─ Grid: Nx=65, Ny=65, init_step=5
+├─ Branch CNN: [{'out_channels': 50, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 50, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 50, 'kernel_size': 2, 'activation': 'relu', 'pool': 'avg', 'pool_size': 2}]
+├─ Branch MLP: [256, 128] → latent=100
+├─ Branch Flatten: 9×9 = 4050
+├─ Trunk MLP: [128, 128, 128, 128, 128, 128] → latent=100
+├─ RK4 CNN: [{'out_channels': 30, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 30, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 30, 'kernel_size': 2, 'activation': 'relu', 'pool': 'avg', 'pool_size': 2}]
+├─ RK4 MLP: [32, 32] → 4
+├─ Params: DeepONet=1,214,497 + RK4=91,040 = 1,305,537
+├─ DeepONet lr=0.001, RK4 lr=0.002
+└─ scheduler=ReduceLROnPlateau
+============================================================
+
+============================================================
+[TI(L)-DeepONet | 2026-05-11 22:16:41]
+============================================================
+├─ Allen-Cahn: epsilon=0.05, T=1.0, dt=0.020000
+├─ Grid: Nx=65, Ny=65, init_step=5
+├─ Branch CNN: [{'out_channels': 50, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 50, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 50, 'kernel_size': 2, 'activation': 'relu', 'pool': 'avg', 'pool_size': 2}]
+├─ Branch MLP: [256, 128] → latent=100
+├─ Branch Flatten: 9×9 = 4050
+├─ Trunk MLP: [128, 128, 128, 128, 128, 128] → latent=100
+├─ RK4 CNN: [{'out_channels': 30, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 30, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 30, 'kernel_size': 2, 'activation': 'relu', 'pool': 'avg', 'pool_size': 2}]
+├─ RK4 MLP: [32, 32] → 4
+├─ Params: DeepONet=1,214,497 + RK4=91,040 = 1,305,537
+├─ DeepONet lr=0.001, RK4 lr=0.002
+└─ scheduler=ReduceLROnPlateau
+============================================================
+├── epoch 0: test_l2=3.7105e-01  elapsed=0h0m  per_interval=0h0m
+
+============================================================
+[TI(L)-DeepONet | 2026-05-11 22:30:28]
+============================================================
+├─ Allen-Cahn: epsilon=0.05, T=1.0, dt=0.020000
+├─ Grid: Nx=65, Ny=65, init_step=5
+├─ Branch CNN: [{'out_channels': 50, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 50, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 50, 'kernel_size': 2, 'activation': 'relu', 'pool': 'avg', 'pool_size': 2}]
+├─ Branch MLP: [256, 128] → latent=100
+├─ Branch Flatten: 9×9 = 4050
+├─ Trunk MLP: [128, 128, 128, 128, 128, 128] → latent=100
+├─ RK4 CNN: [{'out_channels': 30, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 30, 'kernel_size': 3, 'activation': 'relu', 'pool': 'max', 'pool_size': 2}, {'out_channels': 30, 'kernel_size': 2, 'activation': 'relu', 'pool': 'avg', 'pool_size': 2}]
+├─ RK4 MLP: [32, 32] → 4
+├─ Params: DeepONet=1,214,497 + RK4=91,040 = 1,305,537
+├─ DeepONet lr=0.001, RK4 lr=0.002
+└─ scheduler=ReduceLROnPlateau
+============================================================

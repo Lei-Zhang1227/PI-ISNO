@@ -1,0 +1,89 @@
+data:
+  name: Burgers
+  datapath: 'data/2D_diff-react_NA_NA.h5'
+  extend_datapath: 'data/2D_diff-react_full_0_15.h5'
+  long_datapath: 'data/2D_diff-react_t5_t15_101.h5'
+  total_num: 1100
+  offset: 0
+  n_sample: 8
+  nx: 128
+  nt: 101
+  x_length: 2.0
+  t_length: 1.0
+  sub_x: 1
+  sub_t: 1
+  data_sub_x: 1
+  data_sub_t: 1
+  test_sub_x: 1
+  test_sub_t: 1
+  initial_step: 10
+
+model:
+  input_channel: 3
+  modes: 24
+  width: 24
+  bandwidth: 1
+  output_channel: 2
+  dim: 2
+  triL: [ [ 0,0 ],[ 0,0 ],[ 0,0 ] ]
+  act: gelu
+  num_pad: 4
+
+train:
+  initial_step: 10
+  batchsize: 10
+  epochs: 601
+  use_tqdm: 0
+  base_lr: 0.001
+  retrain_load_optimizer: False
+
+  check_epochs: 50
+  verbose_interval: 10
+  milestones: [ 150, 300,400 ]
+
+  curriculum: False
+
+  adaptive_gate: True
+  use_causal_weights: True
+  use_lr_schedule: True
+
+  curriculum_para: [ 8, 800, 0.0 ]
+  # 自适应门控参数（基于 plateau 检测）
+  loss_plateau_patience: 10
+  loss_plateau_threshold: 0.001
+  force_expand_patience: 300
+  force_patience_early_ratio: 6   # 前期 45 epochs
+  force_patience_late_ratio: 0.5
+  # 因果权重参数
+  epsilon_start: 0.8
+  epsilon_end: 0.1
+  # 学习率调度参数
+  lr_boost: 2
+  lr_warmup_epochs: 5
+  lr_scheduler_patience: 4
+
+  scheduler: 'ReduceLROnPlateau'
+  cosine_schedul: 0.01 # 如果不用warm的话直接0就行了
+  scheduler_info: 'choose "ReduceLROnPlateau" or "Step" or "MultiStepLR"'
+  gamma: 0.5
+  patience: 20
+  patience_info: 'can be step_size in Step, factor in "ReduceLROnPlateau"'
+  
+  ic_loss: 1.0
+  f_loss: 1.0
+  xy_loss: 1.0
+  residual_mode: 'Spectral'
+  residual_mode_info: 'choose "Spectral" or "FDM"'
+  loss_mode: 'pde'
+
+log:
+  project: PINO-burgers-pretrain
+  group: gelu-eqn
+  entity: hzzheng-pino
+
+prepare:
+  seed: 0
+  project: 'result/RA-RES-A'
+  info: '标签数据分辨率：32*32*101；使用纯标签数据；向量自回归；model使用SPFNO相同的结构：model = Model(10 * 2 + 2, 24, 24, 1, out_channels=2, dim=2, triL=0).to(device)‘
+'
+

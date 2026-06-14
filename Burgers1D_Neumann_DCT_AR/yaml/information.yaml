@@ -1,0 +1,72 @@
+data:
+  name: Burgers
+  datapath: 'data/burgers_neumann_513x101_1s_old_format.h5'
+  total_num: 1100
+  offset: 0
+  n_sample: 8
+  nx: 513
+  nt: 101
+  x_length: 2.0
+  t_length: 1.0
+  sub_x: 4
+  sub_t: 1
+  data_sub_x: 4
+  data_sub_t: 1
+  test_sub_x: 4
+  test_sub_t: 1
+  initial_step: 10
+  loader: 'ProgRes'
+  loader_info: 'choose "MixedRes" or "ProgRes" or "FixedRes"'
+  phases:
+    - start_epoch: 0
+      resolutions: [ "129", "257" ]
+#     - start_epoch: 800
+#       resolutions: [ "517" ]
+#     - start_epoch: 1000
+#       resolutions: [ "517", "257" ]
+#     - start_epoch: 1200
+#       resolutions: [ "129", "257", "517" ]
+
+model:
+  input_channel: 1
+  modes: [ 20,20,20,20,20,20 ]
+  width: [ 50,50,50,50,50,50 ]
+  bandwidth: [ 3,3,3,3,3,3 ]
+  output_channel: 1
+  dim: 1
+  triL: [ 0,0,0,0,0 ]
+  act: gelu
+  num_pad: 4
+
+train:
+  data_dim: 129
+  use_tqdm: 0
+  batchsize: 20
+  epochs: 1001
+  check_epochs: 50
+  verbose_interval: 25
+  milestones: [ 150, 300,400 ]
+  base_lr: 0.001
+  curriculum: False
+  curriculum_para: [ 1000,0.1 ] # 分别是warmup_epochs，rollback_prob
+  scheduler: 'cosine_schedule_with_warmup'
+  cosine_schedul: 0.01 # 如果不用warm的话直接0就行了
+  scheduler_info: 'choose "ReduceLROnPlateau" or "Step" or "MultiStepLR"'
+  gamma: 0.75
+  patience: 50
+  patience_info: 'can be step_size in Step, factor in "ReduceLROnPlateau"'
+  ic_loss: 1.0
+  f_loss: 1.0
+  xy_loss: 1.0
+  residual_mode: 'Spectral' #'FDM' #
+  residual_mode_info: 'choose "Spectral" or "FDM"'
+  init_t: 10
+  loss_mode: 'pde'
+  loss_size_average: False
+  retrain_load_optimizer: True
+
+prepare:
+  seed: 0
+  project: 'result/DCT-res-new-data-old_file'
+  info: 'pde'
+
