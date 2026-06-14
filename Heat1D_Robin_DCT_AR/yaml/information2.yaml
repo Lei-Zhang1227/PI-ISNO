@@ -57,7 +57,7 @@ train:
   use_lr_schedule: True
 
   curriculum_para: [ 8, 800, 0.0 ]
-  # 自适应门控参数（基于 plateau 检测）
+  # 自适应门控参数（基�?plateau 检测）
   loss_plateau_patience: 10
   loss_plateau_threshold: 0.001
   force_expand_patience: 300
@@ -66,13 +66,13 @@ train:
   # 因果权重参数
   epsilon_start: 0.8
   epsilon_end: 0.1
-  # 学习率调度参数
+  # 学习率调度参�?
   lr_boost: 2
   lr_warmup_epochs: 5
   lr_scheduler_patience: 4
 
   scheduler: 'ReduceLROnPlateau'
-  cosine_schedul: 0.01 # 如果不用warm的话直接0就行了
+  cosine_schedul: 0.01 # 如果不用warm的话直接0就行�?
   scheduler_info: 'choose "ReduceLROnPlateau" or "Step" or "MultiStepLR"'
   gamma: 0.5
   patience: 20
@@ -89,5 +89,5 @@ train:
 
 prepare:
   seed: 0
-  project: 'result/51-5-testforRES_repeat'
-  info: '使用纯PDE损失来训练模型。四阶时间差分，10倍的自适应的梯度裁剪；使用前100个sample作为测试sample;'
+  project: 'result/exp'
+  info: '使用纯PDE损失来训练模型。四阶时间差分，10倍的自适应的梯度裁剪；使用�?00个sample作为测试sample;'

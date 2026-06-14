@@ -120,9 +120,9 @@ def testII(config, args):
             model_name = args.pretrain[:-8]
             model_name = re.sub(r'[^a-zA-Z0-9_]', '_', model_name)
             checkpoint = torch.load(case_path(args.pretrain))
-            # 从 checkpoint 中提取模型、优化器和其他状态
+            # Load model and training state from checkpoint.
             model.load_state_dict(checkpoint['model'])  # 加载模型参数
-            # 其他状态，如损失列表、学习率列表等
+            # Auxiliary state: loss history, learning-rate history, and gradients.
             loss_list = checkpoint['loss_list']  # checkpoint['loss_for_train']
             test_loss_list = checkpoint.get('test_loss_list')  # checkpoint.get('test_loss_list')
             grad_array = checkpoint['grad']
@@ -144,9 +144,9 @@ def testII(config, args):
             print(os.getcwd())
             checkpoint = torch.load(os.path.join(first_dic, 'checkpoint-best.pth.tar'))
             grad_array = checkpoint['grad']
-            # 从 checkpoint 中提取模型、优化器和其他状态
+            # Load model and training state from checkpoint.
             model.load_state_dict(checkpoint['model'])  # 加载模型参数
-            # 其他状态，如损失列表、学习率列表等
+            # Auxiliary state: loss history, learning-rate history, and gradients.
             loss_list = checkpoint['loss_list']
             test_loss_list = checkpoint['test_loss_list']
             lr_list = checkpoint['lr_list']
@@ -193,7 +193,7 @@ def testII(config, args):
                 inp_shape = list(xx.shape)
                 inp_shape = inp_shape[:-2]
                 inp_shape.append(-1)  # [b, nx, -1]，等于合并剩余的维度
-                outp_shape = inp_shape[:-1] + [1, -1]  # 最后添加 [1, -1] 得到 [b, nx, 1, -1]
+                outp_shape = inp_shape[:-1] + [1, -1]  # Append [1, -1] to obtain [b, nx, 1, -1].
 
                 pred = torch.empty(yy.shape, device=xx.device)
                 gridt = torch.tensor(np.linspace(0, 3, t_train), dtype=dtype, device=xx.device).reshape(
@@ -209,7 +209,7 @@ def testII(config, args):
                     out = last_step + delta
                     pred[..., t:t + 1, :] = out
                     xx = torch.cat((xx[..., 1:, :], out), dim=-2)
-                assert pred.shape == yy.shape, f"Tensor shapes do not match: {pred.shape} != {yy.shape}"  # pred.shape： [1,nx,101,1]
+                assert pred.shape == yy.shape, f"Tensor shapes do not match: {pred.shape} != {yy.shape}"
 
                 segments = {
                     '0-5': (init_t + 1, 101),
@@ -244,7 +244,7 @@ def testII(config, args):
                     sample_timestep_errors.append(err_t)
                 timestep_errors_list.append(sample_timestep_errors)
 
-                # 新增：计算整体L2误差并保存样本详情
+                # Save total L2 error and per-sample details.
                 l2_total = loss_fn(pred.reshape(_batch, -1), yy.reshape(_batch, -1)).item()
                 sample_details.append({
                     'index': b,
@@ -296,7 +296,7 @@ def testII(config, args):
         print(f"  Total timesteps: {len(timestep_results)}")
         print(f"  Mean L2 range: [{timestep_mean_errors.min():.6e}, {timestep_mean_errors.max():.6e}]")
 
-        # 保存时间步误差数据用于后续分析
+        # Save timestep error data for later analysis.
         timestep_errors_all[name] = {
             'timesteps': list(range(init_t, t_train)),
             'mean': timestep_mean_errors,
@@ -309,7 +309,7 @@ def testII(config, args):
         # 新增：按 L2 误差排序，选择指定百分位的样本
         sorted_samples = sorted(sample_details, key=lambda x: x['l2_total'])
 
-        # 选择 0%, 1%, 2%, 5%, 10%, 30% 位次的样本
+        # Select samples at 0%, 1%, 2%, 5%, 10%, and 30% ranks.
         percentiles = [0, 0.01, 0.02, 0.05, 0.10, 0.30]
         percentile_names = ['0%', '1%', '2%', '5%', '10%', '30%']
         selected = []
@@ -339,8 +339,8 @@ def testII(config, args):
         pickle.dump(timestep_errors_all, f)
 
     print("\n" + "=" * 60)
-    print("可视化数据已保存到 selected_samples_for_visualization.pkl")
-    print("时间步误差数据已保存到 timestep_errors.pkl")
+    print("Visualization data saved to selected_samples_for_visualization.pkl")
+    print("Timestep error data saved to timestep_errors.pkl")
     print("=" * 60)
     # endregion
 
@@ -351,7 +351,7 @@ if __name__ == '__main__':
                         help='Path to the configuration file')
     parser.add_argument('--pkl', default=None, help='Turn on the wandb')
     parser.add_argument('--mode', type=str, default='test_extend', help='train or test')
-    parser.add_argument('--pretrain', type=str, default='result/RA-RES-A/checkpoint-best.pth.tar',
+    parser.add_argument('--pretrain', type=str, default='result/exp/checkpoint-best.pth.tar',
                         help='pretrain model path')
     parser.add_argument('--load_lr', action='store_true', help='pretrain model path')
     args = parser.parse_args()
@@ -362,7 +362,7 @@ if __name__ == '__main__':
             with open(config_file, encoding="utf-8") as stream:
                 config = yaml.load(stream, yaml.FullLoader)
         except UnicodeDecodeError:
-            # 如果UTF-8失败，尝试GB18030（兼容GBK）
+            # Fallback for archived configs saved with GB18030/GBK-compatible encoding.
             with open(config_file, encoding="gb18030") as stream:
                 config = yaml.load(stream, yaml.FullLoader)
     if args.mode == 'testII':

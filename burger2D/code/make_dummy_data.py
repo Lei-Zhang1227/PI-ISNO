@@ -1,4 +1,4 @@
-﻿import h5py
+import h5py
 import numpy as np
 from pathlib import Path
 

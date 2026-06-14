@@ -51,7 +51,7 @@ train:
   use_lr_schedule: True
 
   curriculum_para: [ 8, 800, 0.0 ]
-  # 自适应门控参数（基于 plateau 检测）
+  # 自适应门控参数（基�?plateau 检测）
   loss_plateau_patience: 10
   loss_plateau_threshold: 0.001
   force_expand_patience: 300
@@ -60,7 +60,7 @@ train:
   # 因果权重参数
   epsilon_start: 0.8
   epsilon_end: 0.1
-  # 学习率调度参数
+  # 学习率调度参�?
   lr_boost: 2
   lr_warmup_epochs: 5
   lr_scheduler_patience: 4
@@ -80,6 +80,6 @@ train:
 
 prepare:
   seed: 0
-  project: 'result/51-5-res-B'
+  project: 'result/exp'
   info: 'PDE'
 

@@ -1,4 +1,4 @@
-﻿data:
+data:
   name: BurgersDummy
   datapath: 'data/burgers2d_spectral_dummy.h5'
   total_num: 101

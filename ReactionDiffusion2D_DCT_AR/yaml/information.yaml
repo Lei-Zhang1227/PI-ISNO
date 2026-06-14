@@ -48,7 +48,7 @@ train:
   use_lr_schedule: True
 
   curriculum_para: [ 8, 800, 0.0 ]
-  # 自适应门控参数（基于 plateau 检测）
+  # 自适应门控参数（基�?plateau 检测）
   loss_plateau_patience: 10
   loss_plateau_threshold: 0.001
   force_expand_patience: 300
@@ -57,13 +57,13 @@ train:
   # 因果权重参数
   epsilon_start: 0.8
   epsilon_end: 0.1
-  # 学习率调度参数
+  # 学习率调度参�?
   lr_boost: 2
   lr_warmup_epochs: 5
   lr_scheduler_patience: 4
 
   scheduler: 'ReduceLROnPlateau'
-  cosine_schedul: 0.01 # 如果不用warm的话直接0就行了
+  cosine_schedul: 0.01 # 如果不用warm的话直接0就行�?
   scheduler_info: 'choose "ReduceLROnPlateau" or "Step" or "MultiStepLR"'
   gamma: 0.5
   patience: 20
@@ -83,7 +83,7 @@ log:
 
 prepare:
   seed: 0
-  project: 'result/RA-RES-A'
-  info: '标签数据分辨率：32*32*101；使用纯标签数据；向量自回归；model使用SPFNO相同的结构：model = Model(10 * 2 + 2, 24, 24, 1, out_channels=2, dim=2, triL=0).to(device)‘
+  project: 'result/exp'
+  info: '标签数据分辨率：32*32*101；使用纯标签数据；向量自回归；model使用SPFNO相同的结构：model = Model(10 * 2 + 2, 24, 24, 1, out_channels=2, dim=2, triL=0).to(device)�?
 '
 

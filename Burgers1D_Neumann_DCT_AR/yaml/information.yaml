@@ -50,7 +50,7 @@ train:
   curriculum: False
   curriculum_para: [ 1000,0.1 ] # 分别是warmup_epochs，rollback_prob
   scheduler: 'cosine_schedule_with_warmup'
-  cosine_schedul: 0.01 # 如果不用warm的话直接0就行了
+  cosine_schedul: 0.01 # 如果不用warm的话直接0就行�?
   scheduler_info: 'choose "ReduceLROnPlateau" or "Step" or "MultiStepLR"'
   gamma: 0.75
   patience: 50
@@ -67,6 +67,6 @@ train:
 
 prepare:
   seed: 0
-  project: 'result/DCT-res-new-data-old_file'
+  project: 'result/exp'
   info: 'pde'
 

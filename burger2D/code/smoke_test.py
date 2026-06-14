@@ -1,4 +1,4 @@
-﻿from pathlib import Path
+from pathlib import Path
 from functools import partial as PARTIAL
 import yaml
 import torch
