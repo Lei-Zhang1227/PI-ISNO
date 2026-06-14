@@ -2,6 +2,8 @@
 
 This repository is organized as a case-based reproducibility package for the PI-ISNO experiments. Each case keeps the minimum materials needed to support the reported experiment: code, selected configuration, archived best checkpoint, training/evaluation history, and result summaries.
 
+The current public release contains three reproducibility cases. Additional benchmark cases and the corresponding full datasets are being prepared and will be uploaded in subsequent updates.
+
 ## Cases
 
 ```text
@@ -44,3 +46,5 @@ Historical training logs in `result/` are preserved as original records. They ma
 ## Release Notes
 
 The package intentionally excludes intermediate epoch checkpoints, notebook checkpoints, caches, and very large temporary artifacts. The goal is to keep enough material to verify that each experiment is real and reproducible without uploading unnecessary training clutter.
+
+More cases and dataset links/files will be added soon as the remaining experiments are organized for public release.
