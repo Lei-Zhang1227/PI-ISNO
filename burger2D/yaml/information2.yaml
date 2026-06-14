@@ -1,0 +1,85 @@
+data:
+  name: Burgers
+  datapath: 'data/burgers2d_spectral.h5'
+  # Optional: set a separate file for test_extend.py. Falls back to datapath when omitted.
+  # extend_datapath: 'data/burgers2d_spectral_T5.h5'
+  total_num: 1100
+  offset: 0
+  n_sample: 8
+  nx: 128
+  nt: 101
+  x_length: 2.0
+  t_length: 1.0
+  sub_x: 2
+  sub_t: 2
+  data_sub_x: 2
+  data_sub_t: 2
+  test_sub_x: 2
+  test_sub_t: 2
+  initial_step: 5
+
+model:
+  input_channel: 1
+  modes: [ [ 25, 25 ], [ 20, 20 ], [ 20, 20 ], [ 20, 20 ], [ 15, 15 ] ]
+  width: [ 25, 25, 25, 25, 25 ]
+  bandwidth: [ [ 1, 1 ], [ 1, 1 ], [ 1, 1 ], [ 1, 1 ], [ 1, 1 ] ]
+  output_channel: 1
+  dim: 2
+  triL: [ [ 0,0 ],[ 0,0 ],[ 0,0 ],[ 0,0 ],[ 0,0 ] ]
+  act: gelu
+  num_pad: 4
+
+train:
+  initial_step: 5
+  batchsize: 10
+  epochs: 301
+  use_tqdm: 0
+  base_lr: &base_lr 0.0005
+  loss_mode: 'pdf'
+  size_average: true
+  check_epochs: 50
+  verbose_interval: 10
+  retrain_load_optimizer: False
+  pre_mode: 'delta'
+
+  warmup_epochs: 10
+  warmup_lr: [ 0.004, 0.001, 0.001, 0.001, 0.001, 0.0005, 0.0005, 0.0005, 0.0001, *base_lr ]
+  curriculum: False
+
+  adaptive_gate: True
+  use_causal_weights: True
+  use_lr_schedule: True
+
+  curriculum_para: [ 8, 800, 0.0 ]
+  # 自适应门控参数（基于 plateau 检测）
+  loss_plateau_patience: 10
+  loss_plateau_threshold: 0.001
+  force_expand_patience: 300
+  force_patience_early_ratio: 6   # 前期 45 epochs
+  force_patience_late_ratio: 0.5
+  # 因果权重参数
+  epsilon_start: 0.8
+  epsilon_end: 0.1
+  # 学习率调度参数
+  lr_boost: 2
+  lr_warmup_epochs: 5
+  lr_scheduler_patience: 4
+
+
+  scheduler: 'ReduceLROnPlateau'
+  scheduler_info: 'choose "ReduceLROnPlateau" or "Step" or "MultiStepLR"'
+  gamma: 0.5
+  patience: 10
+  milestones: [100,150,200,250,280,300,320,350,380,400 ]
+  patience_info: 'can be step_size in Step, factor in "ReduceLROnPlateau"'
+  ic_loss: 1.0
+  f_loss: 1.0
+  xy_loss: 1.0
+  residual_mode: 'mae'
+  residual_mode_info: 'choose "Spectral" or "FDM"'
+
+prepare:
+  seed: 0
+  project: 'result/51-5-res-B'
+  info: 'PDE'
+

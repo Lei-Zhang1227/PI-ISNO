@@ -1,0 +1,323 @@
+
+============================================================
+[Experiment Log | 2026-01-13 21:44:41]
+============================================================
+
+├─ Problem Description
+│   ├── Case: 2D Burgers equation
+│   ├── Data Path: /data/zhanglei/BurgersEquationII/burgers2d_spectral.h5
+│   └── Spatial Sub-sampling: 2, Temporal Sub-sampling: 2
+
+├─ Model Configuration
+│   ├── Model Class: SOL2D
+│   ├── Transform: DCT-II (Discrete Cosine Transform Type II)
+│   ├── Modes: [[25, 25], [20, 20], [20, 20], [20, 20], [15, 15]]
+│   ├── Width: [25, 25, 25, 25, 25]
+│   ├── Bandwidth: [[1, 1], [1, 1], [1, 1], [1, 1], [1, 1]]
+│   ├── Output Channels: 1
+│   ├── Dimension: 2
+│   ├── TriL: [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+│   ├── Input Channels: 8 (initial_step=5 + 3)
+│   └── Total Trainable Parameters: 1,231,682
+
+├─ Data Configuration
+│   ├── Train Samples: 1000
+│   ├── Test Samples: 100
+│   ├── Batch Size: 20
+│   ├── Total Time Steps: 51
+│   └── Initial Steps: 5
+
+├─ Optimizer Configuration
+│   ├── Optimizer: Adam (betas=(0.9, 0.999))
+│   ├── Base Learning Rate: 0.004
+│   └── LR Scheduler: Step
+
+├─ Curriculum Learning Configuration
+│   ├── Enabled: False
+
+├─ Warmup Configuration
+│   ├── Warmup Epochs: 10
+│   ├── Warmup LR: [0.004, 0.001, 0.001, 0.001, 0.001, 0.0005, 0.0005, 0.0005, 0.0001, 0.004]
+│   └── Target: Pretrain to constant initial state
+
+├─ Gradient Clipping
+│   ├── Method: RobustAdaptiveGradientClipperV2
+│   ├── Initial Max Norm: 500.0
+│   └── Window Size: 60
+
+└─ Runtime
+    ├── Device: cuda
+    ├── Seed: 0
+    └── Save Directory: /code/burger2D/output/burger2D/51-5-res-B
+
+============================================================
+Training Log:
+============================================================
+
+├─ Training Start! | 2026-01-13 21:44:41] 
+├── Test l2 error in epoch 0: 1.1109e+00
+│   └── Costed Time: 0h 1m
+│   └── Costed Time per 100 epoch: 0h 1m
+│   └── Current Best epoch: 0m
+│       └── Batch loss: 1.0000e+02
+
+============================================================
+[Experiment Log | 2026-01-13 21:58:59]
+============================================================
+
+├─ Problem Description
+│   ├── Case: 2D Burgers equation
+│   ├── Data Path: /data/zhanglei/BurgersEquationII/burgers2d_spectral.h5
+│   └── Spatial Sub-sampling: 2, Temporal Sub-sampling: 2
+
+├─ Model Configuration
+│   ├── Model Class: SOL2D
+│   ├── Transform: DCT-II (Discrete Cosine Transform Type II)
+│   ├── Modes: [[25, 25], [20, 20], [20, 20], [20, 20], [15, 15]]
+│   ├── Width: [25, 25, 25, 25, 25]
+│   ├── Bandwidth: [[1, 1], [1, 1], [1, 1], [1, 1], [1, 1]]
+│   ├── Output Channels: 1
+│   ├── Dimension: 2
+│   ├── TriL: [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+│   ├── Input Channels: 8 (initial_step=5 + 3)
+│   └── Total Trainable Parameters: 1,231,682
+
+├─ Data Configuration
+│   ├── Train Samples: 1000
+│   ├── Test Samples: 100
+│   ├── Batch Size: 10
+│   ├── Total Time Steps: 51
+│   └── Initial Steps: 5
+
+├─ Optimizer Configuration
+│   ├── Optimizer: Adam (betas=(0.9, 0.999))
+│   ├── Base Learning Rate: 0.004
+│   └── LR Scheduler: Step
+
+├─ Curriculum Learning Configuration
+│   ├── Enabled: False
+
+├─ Warmup Configuration
+│   ├── Warmup Epochs: 10
+│   ├── Warmup LR: [0.004, 0.001, 0.001, 0.001, 0.001, 0.0005, 0.0005, 0.0005, 0.0001, 0.004]
+│   └── Target: Pretrain to constant initial state
+
+├─ Gradient Clipping
+│   ├── Method: RobustAdaptiveGradientClipperV2
+│   ├── Initial Max Norm: 500.0
+│   └── Window Size: 60
+
+└─ Runtime
+    ├── Device: cuda
+    ├── Seed: 0
+    └── Save Directory: /code/burger2D/output/burger2D/51-5-res-B
+
+============================================================
+Training Log:
+============================================================
+
+├─ Training Start! | 2026-01-13 21:58:59] 
+├── Test l2 error in epoch 0: 1.0223e+00
+│   └── Costed Time: 0h 1m
+│   └── Costed Time per 100 epoch: 0h 1m
+│   └── Current Best epoch: 0m
+│       └── Batch loss: 1.0000e+02
+
+============================================================
+[Experiment Log | 2026-01-13 23:58:43]
+============================================================
+
+├─ Problem Description
+│   ├── Case: 2D Burgers equation
+│   ├── Data Path: /data/zhanglei/BurgersEquationII/burgers2d_spectral.h5
+│   └── Spatial Sub-sampling: 2, Temporal Sub-sampling: 2
+
+├─ Model Configuration
+│   ├── Model Class: SOL2D
+│   ├── Transform: DCT-II (Discrete Cosine Transform Type II)
+│   ├── Modes: [[25, 25], [20, 20], [20, 20], [20, 20], [15, 15]]
+│   ├── Width: [25, 25, 25, 25, 25]
+│   ├── Bandwidth: [[1, 1], [1, 1], [1, 1], [1, 1], [1, 1]]
+│   ├── Output Channels: 1
+│   ├── Dimension: 2
+│   ├── TriL: [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+│   ├── Input Channels: 8 (initial_step=5 + 3)
+│   └── Total Trainable Parameters: 1,231,682
+
+├─ Data Configuration
+│   ├── Train Samples: 1000
+│   ├── Test Samples: 100
+│   ├── Batch Size: 10
+│   ├── Total Time Steps: 51
+│   └── Initial Steps: 5
+
+├─ Optimizer Configuration
+│   ├── Optimizer: Adam (betas=(0.9, 0.999))
+│   ├── Base Learning Rate: 0.001
+│   └── LR Scheduler: ReduceLROnPlateau
+
+├─ Curriculum Learning Configuration
+│   ├── Enabled: False
+
+├─ Warmup Configuration
+│   ├── Warmup Epochs: 10
+│   ├── Warmup LR: [0.004, 0.001, 0.001, 0.001, 0.001, 0.0005, 0.0005, 0.0005, 0.0001, 0.001]
+│   └── Target: Pretrain to constant initial state
+
+├─ Gradient Clipping
+│   ├── Method: RobustAdaptiveGradientClipperV2
+│   ├── Initial Max Norm: 500.0
+│   └── Window Size: 60
+
+└─ Runtime
+    ├── Device: cuda
+    ├── Seed: 0
+    └── Save Directory: /code/burger2D/output/burger2D/51-5-res-B
+
+============================================================
+Training Log:
+============================================================
+
+├─ Training Start! | 2026-01-13 23:58:43] 
+├── Test l2 error in epoch 100: 1.9842e-02
+│   └── Costed Time: 0h 23m
+│   └── Costed Time per 100 epoch: 0h 23m
+│   └── Current Best epoch: 99m
+│       └── Batch loss: 6.4181e-03
+├── Test l2 error in epoch 200: 1.5465e-02
+│   └── Costed Time: 2h 16m
+│   └── Costed Time per 100 epoch: 1h 52m
+│   └── Current Best epoch: 194m
+│       └── Batch loss: 2.7441e-03
+
+============================================================
+[Experiment Log | 2026-01-14 04:01:28]
+============================================================
+
+├─ Problem Description
+│   ├── Case: 2D Burgers equation
+│   ├── Data Path: /data/zhanglei/BurgersEquationII/burgers2d_spectral.h5
+│   └── Spatial Sub-sampling: 2, Temporal Sub-sampling: 2
+
+├─ Model Configuration
+│   ├── Model Class: SOL2D
+│   ├── Transform: DCT-II (Discrete Cosine Transform Type II)
+│   ├── Modes: [[25, 25], [20, 20], [20, 20], [20, 20], [15, 15]]
+│   ├── Width: [25, 25, 25, 25, 25]
+│   ├── Bandwidth: [[1, 1], [1, 1], [1, 1], [1, 1], [1, 1]]
+│   ├── Output Channels: 1
+│   ├── Dimension: 2
+│   ├── TriL: [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+│   ├── Input Channels: 8 (initial_step=5 + 3)
+│   └── Total Trainable Parameters: 1,231,682
+
+├─ Data Configuration
+│   ├── Train Samples: 1000
+│   ├── Test Samples: 100
+│   ├── Batch Size: 10
+│   ├── Total Time Steps: 51
+│   └── Initial Steps: 5
+
+├─ Optimizer Configuration
+│   ├── Optimizer: Adam (betas=(0.9, 0.999))
+│   ├── Base Learning Rate: 0.0005
+│   └── LR Scheduler: ReduceLROnPlateau
+
+├─ Curriculum Learning Configuration
+│   ├── Enabled: False
+
+├─ Warmup Configuration
+│   ├── Warmup Epochs: 10
+│   ├── Warmup LR: [0.004, 0.001, 0.001, 0.001, 0.001, 0.0005, 0.0005, 0.0005, 0.0001, 0.0005]
+│   └── Target: Pretrain to constant initial state
+
+├─ Gradient Clipping
+│   ├── Method: RobustAdaptiveGradientClipperV2
+│   ├── Initial Max Norm: 500.0
+│   └── Window Size: 60
+
+└─ Runtime
+    ├── Device: cuda
+    ├── Seed: 0
+    └── Save Directory: /code/burger2D/output/burger2D/51-5-res-B
+
+============================================================
+Training Log:
+============================================================
+
+├─ Training Start! | 2026-01-14 04:01:28] 
+├── Test l2 error in epoch 300: 1.1368e-02
+│   └── Costed Time: 0h 13m
+│   └── Costed Time per 100 epoch: 0h 13m
+│   └── Current Best epoch: 292m
+│       └── Batch loss: 2.4941e-03
+├── Test l2 error in epoch 400: 7.7883e-03
+│   └── Costed Time: 2h 9m
+│   └── Costed Time per 100 epoch: 1h 56m
+│   └── Current Best epoch: 400m
+│       └── Batch loss: 1.2021e-03
+├── Test l2 error in epoch 500: 7.6741e-03
+│   └── Costed Time: 4h 0m
+│   └── Costed Time per 100 epoch: 1h 50m
+│   └── Current Best epoch: 495m
+│       └── Batch loss: 1.1865e-03
+├── training succeed | [2026-01-14 09:39:28]
+│   └── Costed Time: 5h 38m
+------------------------------------------------------------
+
+============================================================
+[Experiment Log | 2026-01-15 01:10:52]
+============================================================
+
+├─ Problem Description
+│   ├── Case: 2D Burgers equation
+│   ├── Data Path: /data/zhanglei/BurgersEquationII/burgers2d_spectral.h5
+│   └── Spatial Sub-sampling: 2, Temporal Sub-sampling: 2
+
+├─ Model Configuration
+│   ├── Model Class: SOL2D
+│   ├── Transform: DCT-II (Discrete Cosine Transform Type II)
+│   ├── Modes: [[25, 25], [20, 20], [20, 20], [20, 20], [15, 15]]
+│   ├── Width: [25, 25, 25, 25, 25]
+│   ├── Bandwidth: [[1, 1], [1, 1], [1, 1], [1, 1], [1, 1]]
+│   ├── Output Channels: 1
+│   ├── Dimension: 2
+│   ├── TriL: [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+│   ├── Input Channels: 8 (initial_step=5 + 3)
+│   └── Total Trainable Parameters: 1,231,682
+
+├─ Data Configuration
+│   ├── Train Samples: 1000
+│   ├── Test Samples: 100
+│   ├── Batch Size: 10
+│   ├── Total Time Steps: 51
+│   └── Initial Steps: 5
+
+├─ Optimizer Configuration
+│   ├── Optimizer: Adam (betas=(0.9, 0.999))
+│   ├── Base Learning Rate: 0.0005
+│   └── LR Scheduler: ReduceLROnPlateau
+
+├─ Curriculum Learning Configuration
+│   ├── Enabled: False
+
+├─ Warmup Configuration
+│   ├── Warmup Epochs: 10
+│   ├── Warmup LR: [0.004, 0.001, 0.001, 0.001, 0.001, 0.0005, 0.0005, 0.0005, 0.0001, 0.0005]
+│   └── Target: Pretrain to constant initial state
+
+├─ Gradient Clipping
+│   ├── Method: RobustAdaptiveGradientClipperV2
+│   ├── Initial Max Norm: 500.0
+│   └── Window Size: 60
+
+└─ Runtime
+    ├── Device: cuda
+    ├── Seed: 0
+    └── Save Directory: /code/burger2D/output/burger2D/51-5-res-B
+
+============================================================
+Training Log:
+============================================================
+
+├─ Training Start! | 2026-01-15 01:10:52] 

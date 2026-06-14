@@ -1,0 +1,138 @@
+
+[Experiment Log | 2026-01-12 03:23:22]
+├── Case: 1D Heat equation with Robin BCs
+├── Model: Discrete Chebshev Transform (DCT) for spatial dimension modeling, and Autoregressive (AR) process for temporal dimension modeling
+
+├─ Model Configuration
+├── Model Class: SQL1D
+├── Initialized new model
+├── Architecture Parameters:
+│   ├── input_channels: 7
+│   ├── modes: 32
+│   ├── width: 30
+│   ├── bandwidth: 3
+│   ├── output_channels: 1
+│   ├── dim: 1
+│   └── triL: [0, 0, 0, 0]
+├── Device: cuda:0
+├── Model Hyparameters: 306,121
+├── Trainable Parameters: 306,121
+├── Layer Details:
+│   ├── conv0: 57,600 parameters
+│   ├── conv1: 57,600 parameters
+│   ├── conv2: 57,600 parameters
+│   ├── conv3: 57,600 parameters
+│   ├── conv4: 57,600 parameters
+│   ├── convl: 10,304 parameters
+│   ├── w0: 930 parameters
+│   ├── w1: 930 parameters
+│   ├── w2: 930 parameters
+│   ├── w3: 930 parameters
+│   ├── fc1: 3,968 parameters
+│   ├── fc2: 129 parameters
+└── Note: Model architecture recorded
+
+├─ Data Configuration
+├── Data: /data/zhanglei/BurgersEquationII/heat1D_robin_highprec.h5
+├── Train/Test Size: 1,900/100 samples
+├── Batch Size: 20 (train), 1 (test)
+├── Spatial Subsampling: sub_x=129
+├── Temporal Subsampling: sub_t=51
+├── Initial Steps: 5
+│   └── k: ν=0.02
+└── Note: Data recorded
+------------------------------------------------------------
+
+├─ Training Start! | 2026-01-12 03:23:22] 
+
+[Experiment Log | 2026-01-12 08:28:35]
+├── Case: 1D Heat equation with Robin BCs
+├── Model: Discrete Chebshev Transform (DCT) for spatial dimension modeling, and Autoregressive (AR) process for temporal dimension modeling
+
+├─ Model Configuration
+├── Model Class: SQL1D
+├── Initialized new model
+├── Architecture Parameters:
+│   ├── input_channels: 7
+│   ├── modes: 32
+│   ├── width: 30
+│   ├── bandwidth: 3
+│   ├── output_channels: 1
+│   ├── dim: 1
+│   └── triL: [0, 0, 0, 0]
+├── Device: cuda:0
+├── Model Hyparameters: 306,121
+├── Trainable Parameters: 306,121
+├── Layer Details:
+│   ├── conv0: 57,600 parameters
+│   ├── conv1: 57,600 parameters
+│   ├── conv2: 57,600 parameters
+│   ├── conv3: 57,600 parameters
+│   ├── conv4: 57,600 parameters
+│   ├── convl: 10,304 parameters
+│   ├── w0: 930 parameters
+│   ├── w1: 930 parameters
+│   ├── w2: 930 parameters
+│   ├── w3: 930 parameters
+│   ├── fc1: 3,968 parameters
+│   ├── fc2: 129 parameters
+└── Note: Model architecture recorded
+
+├─ Data Configuration
+├── Data: /data/zhanglei/BurgersEquationII/heat1D_robin_highprec.h5
+├── Train/Test Size: 1,900/100 samples
+├── Batch Size: 20 (train), 1 (test)
+├── Spatial Subsampling: sub_x=129
+├── Temporal Subsampling: sub_t=51
+├── Initial Steps: 5
+│   └── k: ν=0.02
+└── Note: Data recorded
+------------------------------------------------------------
+
+├─ Training Start! | 2026-01-12 08:28:36] 
+├── Test l2 error in epoch 0: 3.0982e-01
+│   └── Costed Time: 0h 2m
+│   └── Costed Time per 100 epoch: 0h 2m
+│   └── Current Best epoch: 0m
+│       └── Batch loss: 1.0000e+02
+├── Test l2 error in epoch 100: 6.8496e-03
+│   └── Costed Time: 2h 18m
+│   └── Costed Time per 100 epoch: 2h 16m
+│   └── Current Best epoch: 95m
+│       └── Batch loss: 6.9986e-02
+├── Test l2 error in epoch 200: 2.8119e-03
+│   └── Costed Time: 4h 28m
+│   └── Costed Time per 100 epoch: 2h 10m
+│   └── Current Best epoch: 200m
+│       └── Batch loss: 2.5110e-02
+├── Test l2 error in epoch 300: 1.5013e-03
+│   └── Costed Time: 6h 29m
+│   └── Costed Time per 100 epoch: 2h 0m
+│   └── Current Best epoch: 296m
+│       └── Batch loss: 9.7087e-03
+├── Test l2 error in epoch 400: 2.1475e-04
+│   └── Costed Time: 8h 28m
+│   └── Costed Time per 100 epoch: 1h 59m
+│   └── Current Best epoch: 399m
+│       └── Batch loss: 5.8714e-03
+├── Test l2 error in epoch 500: 1.7892e-04
+│   └── Costed Time: 10h 27m
+│   └── Costed Time per 100 epoch: 1h 59m
+│   └── Current Best epoch: 493m
+│       └── Batch loss: 5.7077e-03
+├── Test l2 error in epoch 600: 1.7641e-04
+│   └── Costed Time: 12h 31m
+│   └── Costed Time per 100 epoch: 2h 3m
+│   └── Current Best epoch: 581m
+│       └── Batch loss: 5.6733e-03
+├── training succeed | [2026-01-12 21:00:16]
+│   └── Costed Time: 12h 31m
+------------------------------------------------------------
+├── High Loss Analysis | [2026-01-12 21:05:23]
+│   ├── High data_loss samples: 9 cases
+│   ├── Correlation coefficients:
+│   │   ├── data_loss vs pde_residual: 0.055
+│   │   └── data_loss vs ref_residual: -0.012
+│    └── High loss sample IDs: [9, 16, 43, 62, 71, 80, 87, 88, 90]
+│
+│   L2 metrics:

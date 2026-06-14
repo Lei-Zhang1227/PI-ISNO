@@ -1,0 +1,152 @@
+
+============================================================
+[Experiment Log | 2026-03-11 19:43:19]
+============================================================
+
+├─ Problem Description
+│   ├── Case: 2D Burgers equation
+│   ├── Data Path: /data/zhanglei/BurgersEquationII/heat2d_neumann_1100.h5
+│   └── Spatial Sub-sampling: 2, Temporal Sub-sampling: 2
+
+├─ Model Configuration
+│   ├── Model Class: SOL2D
+│   ├── Transform: DCT-II (Discrete Cosine Transform Type II)
+│   ├── Modes: [[25, 25], [20, 20], [20, 20], [20, 20], [15, 15]]
+│   ├── Width: [25, 25, 25, 25, 25]
+│   ├── Bandwidth: [[1, 1], [1, 1], [1, 1], [1, 1], [1, 1]]
+│   ├── Output Channels: 1
+│   ├── Dimension: 2
+│   ├── TriL: [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+│   ├── Input Channels: 5 (initial_step=3 + 3)
+│   └── Total Trainable Parameters: 1,210,082
+
+├─ Data Configuration
+│   ├── Train Samples: 1000
+│   ├── Test Samples: 100
+│   ├── Batch Size: 20
+│   ├── Total Time Steps: 51
+│   └── Initial Steps: 3
+
+├─ Optimizer Configuration
+│   ├── Optimizer: Adam (betas=(0.9, 0.999))
+│   ├── Base Learning Rate: 0.004
+│   └── LR Scheduler: ReduceLROnPlateau
+
+├─ Curriculum Learning Configuration
+│   ├── Enabled: False
+
+├─ Warmup Configuration
+│   ├── Warmup Epochs: 10
+│   ├── Warmup LR: [0.004, 0.001, 0.001, 0.001, 0.001, 0.0005, 0.0005, 0.0005, 0.0001, 0.004]
+│   └── Target: Pretrain to constant initial state
+
+├─ Gradient Clipping
+│   ├── Method: RobustAdaptiveGradientClipperV2
+│   ├── Initial Max Norm: 500.0
+│   └── Window Size: 60
+
+└─ Runtime
+    ├── Device: cuda
+    ├── Seed: 0
+    └── Save Directory: /code/heat2D/output/51-3-res-A
+
+============================================================
+Training Log:
+============================================================
+
+├─ Training Start! | 2026-03-11 19:43:19] 
+├── Test l2 error in epoch 0: 1.0013e+00
+│   └── Costed Time: 0h 0m
+│   └── Costed Time per 100 epoch: 0h 0m
+│   └── Current Best epoch: 0m
+│       └── Batch loss: 4.0092e+00
+
+============================================================
+[Experiment Log | 2026-03-11 20:14:04]
+============================================================
+
+├─ Problem Description
+│   ├── Case: 2D Burgers equation
+│   ├── Data Path: /data/zhanglei/BurgersEquationII/heat2d_neumann_1100.h5
+│   └── Spatial Sub-sampling: 2, Temporal Sub-sampling: 2
+
+├─ Model Configuration
+│   ├── Model Class: SOL2D
+│   ├── Transform: DCT-II (Discrete Cosine Transform Type II)
+│   ├── Modes: [[25, 25], [20, 20], [20, 20], [20, 20], [15, 15]]
+│   ├── Width: [25, 25, 25, 25, 25]
+│   ├── Bandwidth: [[1, 1], [1, 1], [1, 1], [1, 1], [1, 1]]
+│   ├── Output Channels: 1
+│   ├── Dimension: 2
+│   ├── TriL: [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+│   ├── Input Channels: 5 (initial_step=3 + 3)
+│   └── Total Trainable Parameters: 1,210,082
+
+├─ Data Configuration
+│   ├── Train Samples: 1000
+│   ├── Test Samples: 100
+│   ├── Batch Size: 20
+│   ├── Total Time Steps: 51
+│   └── Initial Steps: 3
+
+├─ Optimizer Configuration
+│   ├── Optimizer: Adam (betas=(0.9, 0.999))
+│   ├── Base Learning Rate: 0.004
+│   └── LR Scheduler: ReduceLROnPlateau
+
+├─ Curriculum Learning Configuration
+│   ├── Enabled: False
+
+├─ Warmup Configuration
+│   ├── Warmup Epochs: 10
+│   ├── Warmup LR: [0.004, 0.001, 0.001, 0.001, 0.001, 0.0005, 0.0005, 0.0005, 0.0001, 0.004]
+│   └── Target: Pretrain to constant initial state
+
+├─ Gradient Clipping
+│   ├── Method: RobustAdaptiveGradientClipperV2
+│   ├── Initial Max Norm: 500.0
+│   └── Window Size: 60
+
+└─ Runtime
+    ├── Device: cuda
+    ├── Seed: 0
+    └── Save Directory: /code/heat2D/output/51-3-res-A
+
+============================================================
+Training Log:
+============================================================
+
+├─ Training Start! | 2026-03-11 20:14:04] 
+├── Test l2 error in epoch 0: 1.0013e+00
+│   └── Costed Time: 0h 0m
+│   └── Costed Time per 100 epoch: 0h 0m
+│   └── Current Best epoch: 0m
+│       └── Batch loss: 4.0092e+00
+├── Test l2 error in epoch 100: 3.5602e-03
+│   └── Costed Time: 1h 0m
+│   └── Costed Time per 100 epoch: 0h 59m
+│   └── Current Best epoch: 94m
+│       └── Batch loss: 3.8795e-03
+├── Test l2 error in epoch 200: 7.6418e-04
+│   └── Costed Time: 1h 59m
+│   └── Costed Time per 100 epoch: 0h 59m
+│   └── Current Best epoch: 195m
+│       └── Batch loss: 1.1696e-03
+├── Test l2 error in epoch 300: 8.1045e-05
+│   └── Costed Time: 2h 58m
+│   └── Costed Time per 100 epoch: 0h 59m
+│   └── Current Best epoch: 300m
+│       └── Batch loss: 1.9175e-04
+├── Test l2 error in epoch 400: 7.8333e-05
+│   └── Costed Time: 4h 0m
+│   └── Costed Time per 100 epoch: 1h 1m
+│   └── Current Best epoch: 399m
+│       └── Batch loss: 7.4563e-05
+├── Test l2 error in epoch 500: 2.7920e-05
+│   └── Costed Time: 5h 2m
+│   └── Costed Time per 100 epoch: 1h 1m
+│   └── Current Best epoch: 500m
+│       └── Batch loss: 5.5368e-05
+├── training succeed | [2026-03-12 01:16:14]
+│   └── Costed Time: 5h 2m
+------------------------------------------------------------

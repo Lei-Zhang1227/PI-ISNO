@@ -1,0 +1,60 @@
+﻿data:
+  name: BurgersDummy
+  datapath: 'data/burgers2d_spectral_dummy.h5'
+  total_num: 101
+  offset: 0
+  n_sample: 1
+  nx: 8
+  nt: 11
+  x_length: 2.0
+  t_length: 1.0
+  sub_x: 1
+  sub_t: 1
+  data_sub_x: 1
+  data_sub_t: 1
+  test_sub_x: 1
+  test_sub_t: 1
+  initial_step: 3
+
+model:
+  input_channel: 1
+  modes: [[3, 3], [3, 3]]
+  width: [8, 8]
+  bandwidth: [[1, 1], [1, 1]]
+  output_channel: 1
+  dim: 2
+  triL: [[0, 0], [0, 0]]
+  act: gelu
+  num_pad: 0
+
+train:
+  initial_step: 3
+  batchsize: 1
+  epochs: 1
+  use_tqdm: 0
+  base_lr: 0.001
+  loss_mode: data
+  size_average: true
+  check_epochs: 1
+  verbose_interval: 1
+  retrain_load_optimizer: False
+  pre_mode: delta
+  warmup_epochs: 0
+  warmup_lr: [0.001]
+  curriculum: False
+  adaptive_gate: False
+  use_causal_weights: False
+  use_lr_schedule: False
+  scheduler: Step
+  gamma: 0.5
+  patience: 1
+  milestones: [1]
+  ic_loss: 1.0
+  f_loss: 1.0
+  xy_loss: 1.0
+  residual_mode: mae
+
+prepare:
+  seed: 0
+  project: 'result/smoke_dummy'
+  info: 'local dummy smoke test only'

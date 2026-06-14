@@ -1,16 +1,46 @@
-# PI-ISNO
+﻿# PI-ISNO Reproducibility Package
 
-This repository contains the code and result files for the PI-ISNO work.
+This repository is organized as a case-based reproducibility package for the PI-ISNO experiments. Each case keeps the minimum materials needed to support the reported experiment: code, selected configuration, archived best checkpoint, training/evaluation history, and result summaries.
 
-## Structure
+## Cases
 
-- `code/`: source code and reproducible scripts.
-- `results/`: generated figures, tables, and experiment outputs selected for sharing.
-- `docs/`: notes, method descriptions, and supplementary documentation.
-- `data/`: small example or processed data files that can be shared publicly.
+```text
+pi-isno/
+├── burger2D/
+├── Heat1D_Robin_DCT_AR/
+└── Heat2D_Neumann_HarmonicLifting/
+```
 
-Large raw data, temporary files, private notes, and machine-specific outputs should not be committed.
+Each case follows the same layout:
 
-## Reproducibility
+```text
+case_name/
+├── data/      # local HDF5 datasets, not all paper-scale data are included
+├── code/      # scripts required for training/evaluation
+├── result/    # selected checkpoint, logs, metrics, and figures
+├── yaml/      # selected experiment configuration
+└── README.md  # case-specific reproduction notes
+```
 
-Document the exact command sequence, software environment, and input files needed to reproduce each result before making this repository public.
+## Path Convention
+
+Active yaml and code paths are case-root relative. For example, `data.datapath: data/example.h5` resolves to `case_name/data/example.h5`, and `prepare.project: result/run_name` resolves to `case_name/result/run_name`.
+
+Historical training logs in `result/` are preserved as original records. They may still contain training-server paths such as `/data/...` or `/code/...`; those are audit history, not active local configuration.
+
+## Selected Runs
+
+| Case | Configuration | Selected result |
+| --- | --- | --- |
+| burger2D | `yaml/information2.yaml` | `result/51-5-res-B` |
+| Heat1D_Robin_DCT_AR | `yaml/information2.yaml` | `result/51-5-testforRES_repeat` |
+| Heat2D_Neumann_HarmonicLifting | `yaml/information.yaml` | `result/51-3-res-A` |
+
+## Local Verification Status
+
+- `burger2D` includes a tiny dummy HDF5 dataset and smoke test; it has been run locally with `D:\anaconda\envs\pi-sol\python.exe`.
+- `Heat1D_Robin_DCT_AR` and `Heat2D_Neumann_HarmonicLifting` core scripts were checked with `python -m py_compile`; full evaluation requires the real HDF5 datasets under each case's `data/` folder.
+
+## Release Notes
+
+The package intentionally excludes intermediate epoch checkpoints, notebook checkpoints, caches, and very large temporary artifacts. The goal is to keep enough material to verify that each experiment is real and reproducible without uploading unnecessary training clutter.

@@ -1,0 +1,93 @@
+data:
+  name: Heat
+  datapath: 'data/heat1D_robin_highprec.h5'
+  extend_datapath: 'data/heat1D_robin_highprec_long.h5'
+  total_num: 2000
+  offset: 0
+  n_sample: 8
+  nx: 513
+  nt: 401
+  x_length: 2.0
+  t_length: 1.0
+  sub_x: 4
+  sub_t: 8
+  data_sub_x: 4
+  data_sub_t: 8
+  test_sub_x: 4
+  test_sub_t: 8
+  initial_step: 5
+  loader: 'ProgRes'
+  loader_info: 'choose "MixedRes" or "ProgRes" or "FixedRes"'
+  phases:
+    - start_epoch: 0
+      resolutions: [ "129", "257" ]
+#     - start_epoch: 800
+#       resolutions: [ "517" ]
+#     - start_epoch: 1000
+#       resolutions: [ "517", "257" ]
+#     - start_epoch: 1200
+#       resolutions: [ "129", "257", "517" ]
+
+model:
+  float: 32
+  input_channel: 1
+  degree: 32
+  width: 30
+  bandwidth: 2
+  output_channel: 1
+  dim: 1
+  triL: [ 0,0,0,0 ]
+  act: gelu
+  num_pad: 4
+
+train:
+  data_dim: 33
+  use_tqdm: 0
+  batchsize: 20
+  epochs: 601
+  check_epochs: 50
+  verbose_interval: 20
+  milestones: [ 150, 300,400 ]
+  base_lr: 0.004
+
+  curriculum: False
+
+  adaptive_gate: True
+  use_causal_weights: True
+  use_lr_schedule: True
+
+  curriculum_para: [ 8, 800, 0.0 ]
+  # 自适应门控参数（基于 plateau 检测）
+  loss_plateau_patience: 10
+  loss_plateau_threshold: 0.001
+  force_expand_patience: 300
+  force_patience_early_ratio: 6   # 前期 45 epochs
+  force_patience_late_ratio: 0.5
+  # 因果权重参数
+  epsilon_start: 0.8
+  epsilon_end: 0.1
+  # 学习率调度参数
+  lr_boost: 2
+  lr_warmup_epochs: 5
+  lr_scheduler_patience: 4
+
+  scheduler: 'ReduceLROnPlateau'
+  cosine_schedul: 0.01 # 如果不用warm的话直接0就行了
+  scheduler_info: 'choose "ReduceLROnPlateau" or "Step" or "MultiStepLR"'
+  gamma: 0.5
+  patience: 20
+  patience_info: 'can be step_size in Step, factor in "ReduceLROnPlateau"'
+  ic_loss: 1.0
+  f_loss: 1.0
+  xy_loss: 1.0
+  residual_mode: 'Spectral' #'FDM' #
+  residual_mode_info: 'choose "Spectral" or "Phycise"'
+  init_t: 1
+  loss_mode: 'PDE'
+  loss_size_average: False
+  retrain_load_optimizer: False
+
+prepare:
+  seed: 0
+  project: 'result/51-5-testforRES_repeat'
+  info: '使用纯PDE损失来训练模型。四阶时间差分，10倍的自适应的梯度裁剪；使用前100个sample作为测试sample;'
